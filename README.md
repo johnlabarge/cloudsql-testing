@@ -4,6 +4,7 @@ This repo has setup scripts to setup a cross region replication for cloudsql usi
 ## Prerequisits
 GCP Project with billing account
 
+## Test Scripts
 First edit the env.sh to customize the setings for your master replication and testing VM.
 The scripts should be run in the following order:
 1. create_cloudsql_network.sh
@@ -17,6 +18,7 @@ The scripts should be run in the following order:
 1. cloudsql-testdb.sh
 1. cloudsql-prepare.sh
 
+## Verifying Replication
 Login to the the testing instance
 
 gcloud compute ssh $SYSBENCH_INSTANCE --command='source /opt/sysbench-scripts/env.sh && \
