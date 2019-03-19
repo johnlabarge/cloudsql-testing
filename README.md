@@ -21,10 +21,13 @@ The scripts should be run in the following order:
 ## Verifying Replication
 Login to the the testing instance
 
+```
 gcloud compute ssh $SYSBENCH_INSTANCE --command='source /opt/sysbench-scripts/env.sh && \
 mysql -uroot -p$MASTER_PASSWORD -h$MASTER  -e "use sbtest; select count(*) from sbtest7"'
+
 gcloud compute ssh $SYSBENCH_INSTANCE --command='source /opt/sysbench-scripts/env.sh && \
 mysql -uroot -p$MASTER_PASSWORD -h$REPLICA  -e "use sbtest; select count(*) from sbtest7"'
+```
 
 This verifies replication across region for CloudSQL 
 TODO - MASTER DEMOTION/PROMOTION
