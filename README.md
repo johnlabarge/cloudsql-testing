@@ -30,4 +30,5 @@ mysql -uroot -p$MASTER_PASSWORD -h$REPLICA  -e "use sbtest; select count(*) from
 ```
 
 This verifies replication across region for CloudSQL 
-TODO - MASTER DEMOTION/PROMOTION
+## TODO
+MASTER DEMOTION/PROMOTION
