@@ -9,4 +9,4 @@ GRANT ALL PRIVILEGES ON * . * TO 'loaduser'@'%';
 
 FLUSH PRIVILEGES;
 EOF
-mysql -uroot -p $MASTER_PASSWORD -h $MASTER < createLoad.sql
+mysql -uroot -p$MASTER_PASSWORD -h $MASTER < createLoad.sql
