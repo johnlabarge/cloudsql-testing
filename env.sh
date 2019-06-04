@@ -11,14 +11,26 @@ REPLICATOR_PASSWORD="replicaty!"
 SYSBENCH_INSTANCE="sysbenchtester5"
 SYSBENCH_ZONE="us-east1-b"
 
-function replicaIp() {
+function replicaIpInternal() {
     echo $(gcloud sql instances list --filter="name:$CLOUDSQL_REPLICA" --format="value(ipAddresses[1].ipAddress)" | tail -1)
 }
 
-function masterIp() {
+function replicaIpExternal() {
+    echo $(gcloud sql instances list --filter="name:$CLOUDSQL_REPLICA" --format="value(ipAddresses[0].ipAddress)" | tail -1)
+}
+
+function masterIpInternal() {
     echo $(gcloud sql instances list --filter="name:$CLOUDSQL_MASTER" --format="value(ipAddresses[1].ipAddress)" | tail -1)
 }
 
-function testerIp() {
-    echo $(gcloud compute instances describe $SYSBENCH_INSTANCE --format="value(networkInterfaces[0].accessConfigs[0].natIP)"  --zone=us-central1-b)
+function masterIpExternal() {
+	echo $(gcloud sql instances list --filter="name:$CLOUDSQL_MASTER" --format="value(ipAddresses[0].ipAddress)" | tail -1)
+}
+
+function testerIpInternal() {
+    echo $(gcloud compute instances describe $SYSBENCH_INSTANCE --zone $SYSBENCH_ZONE --format="value(networkInterfaces[0].networkIP)"  --zone=$SYSBENCH_ZONE)
+}
+
+function testerIpExternal() {
+    echo $(gcloud compute instances describe $SYSBENCH_INSTANCE --zone $SYSBENCH_ZONE --format="value(networkInterfaces[0].accessConfigs[0].natIP)"  --zone=$SYSBENCH_ZONE)
 }

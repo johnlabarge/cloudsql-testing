@@ -2,7 +2,7 @@
 source env.sh
 CLOUDSQL_MASTER_REPRESENTATION="$CLOUDSQL_MASTER-representation"
 BUCKET_URL="gs://$CLOUDSQL_BUCKET"
-MASTER_IP=$(gcloud sql instances list --filter="name:$CLOUDSQL_MASTER" --format="value(ipAddresses[0].ipAddress)" | tail -1)
+MASTER_IP=$(masterIpExternal)
 REPRESENTATION="$CLOUDSQL_MASTER-$CLOUDSQL_REPLICA-representation"
 echo "SQL Master: $MASTER_IP"
 
@@ -21,7 +21,7 @@ gcloud beta sql instances create $CLOUDSQL_REPLICA \
     --master-dump-file-path=gs://$CLOUDSQL_BUCKET/empty.sql
 
 # patch the existing configs in the master to allow the new replica to continue connecting, using its "outgoing IP address"
-REPLICA_IP=$(gcloud sql instances list --filter="name:$CLOUDSQL_REPLICA" --format="value(ipAddresses[1].ipAddress)" | tail -1)
+REPLICA_IP=$(replicaIpExternal)
 # NOTE: this will replace any existing authorized-network configs!
 gcloud sql instances patch $CLOUDSQL_MASTER --authorized-networks=$REPLICA_IP --quiet
 
