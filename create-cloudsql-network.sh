@@ -1,7 +1,6 @@
 #!/bin/bash
 source env.sh
 
-PROJECT=$(gcloud config get-value project)
 gcloud compute networks create $CLOUDSQL_NETWORK \
 --bgp-routing-mode='global' \
 --description="cloudsql network" \
