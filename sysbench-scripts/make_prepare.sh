@@ -4,7 +4,7 @@ cat > prepare.sh <<EOF
 #!/bin/bash
 source env.sh
 sysbench \\
---test=/usr/share/doc/sysbench/tests/db/parallel_prepare.lua \\
+--test=/usr/share/doc/sysbench/db/parallel_prepare.lua \\
 --oltp-tables-count=50 \\
 --oltp_table_size=1000000 \\
 --mysql-host=$MASTER \\
