@@ -11,7 +11,7 @@ REPLICATOR_PASSWORD="replicaty!"
 SYSBENCH_INSTANCE="sysbenchtester5"
 SYSBENCH_ZONE="us-east1-b"
 
-function replicaIpInternal() {
+function replicaIpOutgoing() {
     echo $(gcloud sql instances list --filter="name:$CLOUDSQL_REPLICA" --format="value(ipAddresses[1].ipAddress)" | tail -1)
 }
 
