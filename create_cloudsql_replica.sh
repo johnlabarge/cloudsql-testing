@@ -5,9 +5,6 @@ BUCKET_URL="gs://$CLOUDSQL_BUCKET"
 MASTER_IP=$(gcloud sql instances list --filter="name:$CLOUDSQL_MASTER" --format="value(ipAddresses[0].ipAddress)" | tail -1)
 REPRESENTATION="$CLOUDSQL_MASTER-$CLOUDSQL_REPLICA-representation"
 echo "SQL Master: $MASTER_IP"
-gsutil mb $BUCKET_URL
-touch empty.sql
-gsutil cp empty.sql $BUCKET_URL
 
 gcloud beta sql instances create $REPRESENTATION \
 --region=$CLOUDSQL_REPLICA_REGION \
