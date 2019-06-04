@@ -21,5 +21,6 @@ mkdir -p /usr/share/doc/sysbench
 chgrp -R adm /usr/share
 chmod 775 -R /usr/share/doc/sysbench
 EOF
-gcloud compute instances create $SYSBENCH_INSTANCE --zone=us-central1-b --metadata-from-file startup-script=sysbench_init.sh
+
+gcloud compute instances create $SYSBENCH_INSTANCE --zone=$SYSBENCH_ZONE --metadata-from-file startup-script=sysbench_init.sh
 

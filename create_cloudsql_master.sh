@@ -8,4 +8,4 @@ gcloud beta sql instances create $CLOUDSQL_MASTER \
 
 gcloud sql users set-password root --instance=$CLOUDSQL_MASTER --password=$MASTER_PASSWORD --host=%
 
-gcloud beta sql users create $REPLICATOR_USER --instance=$CLOUDSQL_MASTER --PASSWORD=$REPLICATOR_PASSWORD
+gcloud beta sql users create $REPLICATOR_USER --instance=$CLOUDSQL_MASTER --password=$REPLICATOR_PASSWORD

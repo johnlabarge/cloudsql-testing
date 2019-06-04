@@ -10,8 +10,8 @@ export MASTER_PASSWORD=$MASTER_PASSWORD
 EOF
 
 tar -czf sysbench-scripts.tar.gz sysbench-scripts
-gcloud compute scp sysbench-scripts.tar.gz $SYSBENCH_INSTANCE:/tmp
-gcloud compute ssh $SYSBENCH_INSTANCE --command=\
+gcloud compute scp --zone=$SYSBENCH_ZONE sysbench-scripts.tar.gz $SYSBENCH_INSTANCE:/tmp
+gcloud compute ssh --zone=$SYSBENCH_ZONE $SYSBENCH_INSTANCE --command=\
 'bash -c "sudo cp /tmp/sysbench-scripts.tar.gz /opt && \
-cd /opt && sudo tar -xzf /opt/sysbench-scripts.tar.gz && \
+cd /opt && sudo tar -xvzf /opt/sysbench-scripts.tar.gz && \
 sudo chmod -R 775 /opt/sysbench-scripts"'
