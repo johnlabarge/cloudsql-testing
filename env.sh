@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 CLOUDSQL_MASTER=masterdb5 #name you want for cloud sql
 CLOUDSQL_MASTER_REGION=us-east1 #region for master
 CLOUDSQL_BUCKET="$(gcloud config get-value project)-dbbucket" #name you want for import bucket

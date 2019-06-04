@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 source env.sh
 CLOUDSQL_MASTER_REPRESENTATION="$CLOUDSQL_MASTER-representation"
 BUCKET_URL="gs://$CLOUDSQL_BUCKET"

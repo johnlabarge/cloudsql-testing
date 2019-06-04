@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 source env.sh
 
 gsutil mb gs://$CLOUDSQL_BUCKET

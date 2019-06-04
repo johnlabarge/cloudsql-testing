@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 apt-get update
 apt-get install -y xfsprogs sysstat git iotop htop automake libtool libssl-dev make automake default-libmysqlclient-dev mysql-client
 echo "installing Percona"

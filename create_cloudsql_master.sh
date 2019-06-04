@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 source env.sh
 gcloud beta sql instances create $CLOUDSQL_MASTER \
   --database-version=MYSQL_5_7 \

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 source env.sh
 MASTER_IP=$(gcloud sql instances describe $CLOUDSQL_MASTER --format="value(ipAddresses[0].ipAddress)" | tail -1)
 REPLICA_IP=$(gcloud sql instances describe $CLOUDSQL_REPLICA --format="value(ipAddresses[0].ipAddress)" | tail -1)
