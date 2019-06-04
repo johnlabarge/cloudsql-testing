@@ -1,3 +1,0 @@
-export MASTER=104.196.176.27
-export REPLICA=104.154.206.187
-export MASTER_PASSWORD=rootytoot1

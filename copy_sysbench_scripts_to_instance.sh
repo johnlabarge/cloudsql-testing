@@ -4,6 +4,7 @@ MASTER_IP=$(gcloud sql instances describe $CLOUDSQL_MASTER --format="value(ipAdd
 REPLICA_IP=$(gcloud sql instances describe $CLOUDSQL_REPLICA --format="value(ipAddresses[0].ipAddress)" | tail -1)
 
 cat <<EOF >sysbench-scripts/env.sh 
+# this file is generated
 export MASTER=$MASTER_IP
 export REPLICA=$REPLICA_IP
 export MASTER_PASSWORD=$MASTER_PASSWORD
