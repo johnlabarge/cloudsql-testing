@@ -12,9 +12,8 @@ The scripts should be run in the following order:
 1. create_cloudsql_bucket.sh
 1. create_cloudsql_replica.sh
 1. create_sysbench_instance.sh
-1. create_sysbench_scripts_to_instance.sh
-1. add_sysbench_instance_network.sh
 1. copy_sysbench_scripts_to_instance.sh
+1. add_sysbench_instance_networks.sh
 1. cloudsql-testdb.sh
 1. cloudsql-prepare.sh
 
